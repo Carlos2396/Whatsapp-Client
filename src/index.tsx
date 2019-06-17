@@ -3,6 +3,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
+import { ApolloProvider } from 'react-apollo-hooks';
+import client from './client';
 import * as serviceWorker from './serviceWorker';
 
 const theme = createMuiTheme({
@@ -14,7 +16,9 @@ const theme = createMuiTheme({
 
 ReactDOM.render(
   <MuiThemeProvider theme={theme}>
-    <App />
+    <ApolloProvider client={client}>
+      <App />
+    </ApolloProvider>
   </MuiThemeProvider>,
   document.getElementById('root')
 );
